@@ -15,6 +15,10 @@ __Reference Repository:__ https://github.com/MedMNIST/MedMNIST
 - `Predict survival` from colorectal cancer histology slides.
 - This dataset contains 89,996 / 10,004 / 7,180 images for Training / Validation / Test. It is going to be used for task B.  
 
+## Task:
+- A: Binary classification task (using PneumoniaMNIST dataset). The objective is to classify an image onto "Normal" (no pneumonia) or "Pneumonia" (presence of pneumonia)
+- B: Multi-class classification task (using PathMNIST dataset): The objective is to classi-fy an image onto 9 different types of tissues.
+
 
 ## Report requests: 
 - report training, validation, and testing errors / accuracies, along with describe any hyper-parameter tunice process
