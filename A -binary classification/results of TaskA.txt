@@ -1,0 +1,7 @@
+Methods, Accuracy
+Logistic Regression,84.13%
+KNN,85.90%
+SVM,84.45%
+SVM blurred, 82.05%
+CNN, 86.7%
+CNN with augmentation data, 90.87%
