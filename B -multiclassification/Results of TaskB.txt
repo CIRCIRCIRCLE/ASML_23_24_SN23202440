@@ -1,0 +1,14 @@
+overfitting results in CNN: 
+Test Accuracy -  77.21448540687561 % 32-64-64-128-128-256-256
+Test Accuracy -  83.57938528060913 %  32-64-64-128-128-256 (2 rounds)
+
+
+ADI Accuracy,99.1779,
+BACK Accuracy,100.0000,
+DEB Accuracy,71.3864,
+LYM Accuracy,85.4890,
+MUC Accuracy,65.7005,
+MUS Accuracy,53.2095,
+NORM Accuracy,84.3455,
+STR Accuracy,53.4442,
+TUM Accuracy,79.8865,
