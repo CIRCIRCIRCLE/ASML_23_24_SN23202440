@@ -1,4 +1,7 @@
 Accuracy: 35.82%
+PCA: 35.16%
+Manhatton: 28.68%
+minkowski: 35.17%
 
 Classification Report:
                precision    recall  f1-score   support
