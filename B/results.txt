@@ -1,0 +1,40 @@
+Choose a method (SVM or CNN): SVM
+Number of components for 90% explained variance: 178
+Fitting 2 folds for each of 1 candidates, totalling 2 fits
+[CV 1/2] END .......svm__C=10, svm__gamma=scale;, score=0.687 total time= 7.2min
+[CV 2/2] END .......svm__C=10, svm__gamma=scale;, score=0.685 total time= 7.2min
+Best parameters found by grid search:
+{'svm__C': 10, 'svm__gamma': 'scale'}
+
+Best estimator found by grid search:
+Pipeline(steps=[('pca', PCA(n_components=178)), ('svm', SVC(C=10))])
+Accuracy: 63.22%
+
+Classification Report:
+               precision    recall  f1-score   support
+
+           0       0.87      0.88      0.87      1338
+           1       0.65      1.00      0.79       847
+           2       0.29      0.76      0.42       339
+           3       0.71      0.46      0.56       634
+           4       0.81      0.44      0.57      1035
+           5       0.57      0.44      0.50       592
+           6       0.50      0.50      0.50       741
+           7       0.56      0.38      0.45       421
+           8       0.61      0.58      0.60      1233
+
+    accuracy                           0.63      7180
+   macro avg       0.62      0.60      0.58      7180
+weighted avg       0.67      0.63      0.63      7180
+
+
+Confusion Matrix:
+ [[1173   19   29    0   29   84    2    0    2]
+ [   0  844    0    3    0    0    0    0    0]
+ [   0    1  258    9    0   17    0   48    6]
+ [  86    7   27  292    4    5   66    1  146]
+ [  83  420    9   18  459    3   24    3   16]
+ [   0    0  191   62    2  262    0   70    5]
+ [   9    0   52   11   51   16  372    2  228]
+ [   0    0  139    6    6   58    4  159   49]
+ [   3    3  182   12   14   17  280    2  720]]
