@@ -56,9 +56,9 @@ Libraries    : NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn, Tensorflow, Ker
 ## Confusion Matrix
 ### Task A:
 <p float="center">
-  <img src="/figs/A_conf_LR.png?raw=true" width="320" />
-  <img src="/figs/A_CONF_KNN.png?raw=true" width="320" /> 
-  <img src="/figs/A_CONF_CNN.png?raw=true" width="320" />
+  <img src="/figs/A_conf_LR.png?raw=true" width="300" />
+  <img src="/figs/A_CONF_KNN.png?raw=true" width="300" /> 
+  <img src="/figs/A_CONF_CNN.png?raw=true" width="300" />
 </p>
 
 ### Task B:
