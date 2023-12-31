@@ -48,7 +48,7 @@ Libraries    : NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn, Tensorflow, Ker
 
 ## Model Predictions
 ### Task A:
-<img src="/figs/A_PRED.png?raw=true" width="500" />
+<img src="/figs/A_PRED.png?raw=true" width="800" />
 
 ### Task B:
 <img src="/figs/B_PRED.png?raw=true" width="800" />
