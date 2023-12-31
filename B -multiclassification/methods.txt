@@ -1,5 +1,0 @@
-Model choices:
-CNN/ResNet/DenseNet
-
-Preprocessing procedures: 
-This may include normalizing pixel values, one-hot encoding labels (for categorical_crossentropy loss)  
