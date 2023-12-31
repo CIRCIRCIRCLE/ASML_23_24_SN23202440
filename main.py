@@ -1,6 +1,6 @@
-from load_data import load_data
-from preprocessing import zero_centered_normalization, data_flatten, data_norm_cnn, standard_normalization, one_hot_encoding
-from visualization import plot_confusion_matrix
+from A.load_data import load_data
+from A.preprocessing import zero_centered_normalization, data_flatten, data_norm_cnn, standard_normalization, one_hot_encoding
+from A.visualization import plot_confusion_matrix
 from A.LR import logistic_regression_classification
 from A.KNN import knn_classification, plot_knn_error_rates
 from A.CNN import create_and_compile_model, apply_data_augmentation, train_model_with_augmentation, plot_training_history
@@ -41,6 +41,7 @@ def A_pneumonia_detection():
         #call CNN
         model = create_and_compile_model()
         augmented_data = apply_data_augmentation(x_train2, y_train)
+        history = train_model_with_augmentation(model, augmented_data, x_val2, y_val)
         history = train_model_with_augmentation(model, augmented_data, x_val2, y_val)
 
         print('Test result--------------------------------------------------')
@@ -91,8 +92,15 @@ def B_path_multi_classification():
         
 
 def main():
-    B_path_multi_classification()
-    #A_pneumonia_detection()
+    #choose a task
+    T = input('Choose a Task (A or B):')
+    if T == 'A':
+        A_pneumonia_detection()
+    elif T == 'B':
+        B_path_multi_classification()
+    else:
+        print('Invalid. Please choose A or B')
+    
 
 if __name__ == "__main__":
     main()
