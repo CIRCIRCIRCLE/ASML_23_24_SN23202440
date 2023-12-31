@@ -44,8 +44,26 @@ Libraries    : NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn, Tensorflow, Ker
 |CNN| 90.78| 95.90| 91.19|
 
 ### Task B:
-![image](https://github.com/CIRCIRCIRCLE/ASML_23_24_SN23202440/assets/77573890/fca61baf-06e8-47c4-8c2d-8f8478b5590c)
-
-## Confusion Matrix
+<img src="/figs/B_RES.png?raw=true" width="500" />
 
 ## Model Predictions
+### Task A:
+<img src="/figs/A_PRED.png?raw=true" width="500" />
+
+### Task B:
+<img src="/figs/B_PRED.png?raw=true" width="800" />
+
+## Confusion Matrix
+### Task A:
+<p float="center">
+  <img src="/figs/A_conf_LR.png?raw=true" width="320" />
+  <img src="/figs/A_CONF_KNN.png?raw=true" width="320" /> 
+  <img src="/figs/A_CONF_CNN.png?raw=true" width="320" />
+</p>
+
+### Task B:
+<p float="center">
+  <img src="/figs/B_CONF_SVM.png?raw=true" width="400" />
+  <img src="/figs/B_CONF_CNN.png?raw=true" width="400" /> 
+</p>    
+
