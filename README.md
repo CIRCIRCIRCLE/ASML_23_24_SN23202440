@@ -35,3 +35,17 @@ Libraries    : NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn, Tensorflow, Ker
 - A file contains load_data.py, preprocessing.py, visualization.py which will also be used in B task. And also contains ML functions: LR.py, KNN.py, CNN.py which will be called in the main function.
 - B file contains SVM.py, CNN_B.py which will be called in the main function.
 
+## Performance
+### Task A:
+|Method|Precision|Recall|Accuracy|
+|------|---------|------|--------|
+|LR| 79.75| 97.95| 83.17|
+|KNN| 80.85| 97.44| 83.97|
+|CNN| 90.78| 95.90| 91.19|
+
+### Task B:
+![image](https://github.com/CIRCIRCIRCLE/ASML_23_24_SN23202440/assets/77573890/fca61baf-06e8-47c4-8c2d-8f8478b5590c)
+
+## Confusion Matrix
+
+## Model Predictions
