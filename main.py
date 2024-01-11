@@ -1,6 +1,6 @@
 from A.load_data import load_data
 from A.preprocessing import zero_centered_normalization, data_flatten, data_norm_cnn, standard_normalization, one_hot_encoding
-from A.visualization import plot_confusion_matrix
+from A.visualization import visualize_tsne_A, visualize_tsne_B, plot_confusion_matrix
 from A.LR import logistic_regression_classification
 from A.KNN import knn_classification, plot_knn_error_rates
 from A.CNN import create_and_compile_model, apply_data_augmentation, train_model_with_augmentation, plot_training_history
@@ -20,6 +20,12 @@ def A_pneumonia_detection():
     x_train1, x_test1, x_val1 = zero_centered_normalization(x_train, x_test, x_val)
     x_train_flat, x_test_flat, x_val_flat = data_flatten(x_train1, x_test1, x_val1)
     x_train2, x_test2, x_val2 = data_norm_cnn(x_train1, x_test1, x_val1, img_size)
+
+    # data distribution overview
+    # This may take 10s, if you don't want to check just tap in N
+    overview = input('Do you want to check the distribution overview? Y/N:  ')
+    if overview == 'Y':
+        visualize_tsne_A(x_train, y_train, class_names)
 
     # choose the method
     method = input("Choose a method (LR or KNN or CNN): ")
@@ -70,6 +76,13 @@ def B_path_multi_classification():
     x_train_flat, x_test_flat, x_val_flat = data_flatten(x_train1, x_test1, x_val1)
     x_train2, x_test2, x_val2 = data_norm_cnn(x_train1, x_test1, x_val1, img_size)
     y_train_one_hot, y_test_one_hot, y_val_one_hot = one_hot_encoding(y_train, y_test, y_val)
+
+    # data distribution overview
+    # This may take 8 min!!!!, if you don't want to check just tap in N
+    print('Warning: the distribution overview here may take 8min to run, skip it tap: N')
+    overview = input('Do you want to check the distribution overview? Y/N:  ')
+    if overview == 'Y':
+        visualize_tsne_B(x_train, y_train, class_names)
 
     #choose the method
     method = input("Choose a method (SVM or CNN): ")
