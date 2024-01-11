@@ -4,8 +4,11 @@ from A.visualization import plot_confusion_matrix
 from A.LR import logistic_regression_classification
 from A.KNN import knn_classification, plot_knn_error_rates
 from A.CNN import create_and_compile_model, apply_data_augmentation, train_model_with_augmentation, plot_training_history
+from A.predictionA import display_images_in_layout
 from B.SVM import get_n_components_for_explained_variance, svm_classifier_with_pca, test_images
-from B.CNN_B import create_and_compile_modelB
+from B.CNN_B import create_and_compile_modelB, data_augmentation, train_model_with_augmentationB
+from B.predictionB import display_predictions
+import numpy as np
 
 def A_pneumonia_detection():
     # load data
@@ -23,26 +26,28 @@ def A_pneumonia_detection():
     
     if method == 'LR':
         # call logistic regression
-        accuracy_lr, classification_rep_lr, confusion_mat_lr = logistic_regression_classification(x_train_flat, y_train, x_test_flat, y_test)
+        predicted_labels, accuracy_lr, classification_rep_lr, confusion_mat_lr = logistic_regression_classification(x_train_flat, y_train, x_test_flat, y_test)
         plot_confusion_matrix(confusion_mat_lr, class_names, "Confusion Matrix (Logistic Regression)")
+        display_images_in_layout(x_test1, y_test, predicted_labels, class_names, num_columns=5, num_imgs=20)
 
     elif method == 'KNN':
         # choose the k value based on error rates
         k_values = [k for k in range(1, 12)]
         plot_knn_error_rates(x_train_flat, y_train, x_val_flat, y_val, k_values)
-
         # based on the fig, manually select the value
         # close the fig, continue to the next step
         k_value = int(input("Enter the number of neighbors (K): "))   # 8 performs best
-        accuracy_knn, classification_rep_knn, confusion_mat_knn = knn_classification(x_train_flat, y_train, x_test_flat, y_test, k_value)
+        predicted_labels, accuracy_knn, classification_rep_knn, confusion_mat_knn = knn_classification(x_train_flat, y_train, x_test_flat, y_test, k_value)
         plot_confusion_matrix(confusion_mat_knn, class_names, "Confusion Matrix (K Nearest Neigbors)")
+        display_images_in_layout(x_test1, y_test, predicted_labels, class_names, num_columns=5, num_imgs=20)
 
     elif method == 'CNN':
         #call CNN
         model = create_and_compile_model()
         augmented_data = apply_data_augmentation(x_train2, y_train)
         history = train_model_with_augmentation(model, augmented_data, x_val2, y_val)
-        history = train_model_with_augmentation(model, augmented_data, x_val2, y_val)
+        predictions = model.predict(x_test2)
+        predicted_labels = np.round(predictions).astype(int)        
 
         print('Test result--------------------------------------------------')
         print("Test loss - " , model.evaluate(x_test2,y_test)[0])
@@ -50,6 +55,7 @@ def A_pneumonia_detection():
 
         print('training analysis(shown in fig)------------------------------------------------')
         plot_training_history(history)
+        display_images_in_layout(x_test2, y_test, predicted_labels, class_names, num_columns=5, num_imgs=20)
     else:
         print("Invalid method. Please choose LR or KNN.")
 
@@ -73,13 +79,21 @@ def B_path_multi_classification():
         ## C=10 is the optimal parameter(details can be shown in jupyter notebook)
         n_components_90_percent = get_n_components_for_explained_variance(x_train_flat, threshold_percent=90)
         clf_pca = svm_classifier_with_pca(x_train_flat, y_train.ravel(), C = [10], n_components_pca = n_components_90_percent)
-        accuracy, classification_rep_svm, confusion_mat_svm = test_images(clf_pca, x_test_flat, y_test.ravel())
+        predicted_labels, accuracy, classification_rep_svm, confusion_mat_svm = test_images(clf_pca, x_test_flat, y_test.ravel())
         plot_confusion_matrix(confusion_mat_svm, class_names, "Confusion Matrix (SVM)")
+        display_predictions(x_test1, y_test, predicted_labels, class_names, 8, 40)
 
     elif method == 'CNN':
+        # about 30mins to run
         model = create_and_compile_modelB()
-        augmented_data = apply_data_augmentation(x_train1, y_train_one_hot)
-        history = train_model_with_augmentation(model, augmented_data, x_val1, y_val_one_hot)
+        augmented_data = data_augmentation(x_train1, y_train_one_hot)
+        history = train_model_with_augmentationB(model, augmented_data, x_val1, y_val_one_hot)
+        history = train_model_with_augmentationB(model, augmented_data, x_val1, y_val_one_hot)
+
+        predictions = model.predict(x_test1)
+        predicted_labels = np.argmax(predictions, axis=1)  # Convert one-hot encoded predictions to categorical
+        display_predictions(x_test1, y_test, predicted_labels, class_names, 8, 40)
+        
 
         print('Test result--------------------------------------------------')
         print("Test loss - " , model.evaluate(x_test1,y_test_one_hot)[0])

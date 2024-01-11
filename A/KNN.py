@@ -21,7 +21,7 @@ def knn_classification(x_train, y_train, x_test, y_test, n_neighbors):
     print('\nClassification Report:\n', classification_rep)
     print('\nConfusion Matrix:\n', confusion_mat)
 
-    return accuracy, classification_rep, confusion_mat
+    return predictions, accuracy, classification_rep, confusion_mat
 
 def knn_error_rates(x_train, y_train, x_val, y_val, k_values):
     train_errors = []

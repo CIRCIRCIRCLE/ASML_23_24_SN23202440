@@ -48,7 +48,7 @@ def create_and_compile_modelB(input_shape=(28, 28, 1), dropout_rates=(0.1, 0.2),
     return model
 
 
-def apply_data_augmentation(x_train, y_train, batch_size=32, rotation_range=30, zoom_range=0.2, width_shift_range=0.2, height_shift_range=0.2, horizontal_flip=True, vertical_flip=False):
+def data_augmentation(x_train, y_train, batch_size=32, rotation_range=30, zoom_range=0.2, width_shift_range=0.2, height_shift_range=0.2, horizontal_flip=True, vertical_flip=False):
     datagen = ImageDataGenerator(
         featurewise_center=False,
         samplewise_center=False,
@@ -67,7 +67,7 @@ def apply_data_augmentation(x_train, y_train, batch_size=32, rotation_range=30, 
     return augmented_data
 
 
-def train_model_with_augmentation(model, augmented_data, x_val, y_val, epochs=12):
+def train_model_with_augmentationB(model, augmented_data, x_val, y_val, epochs=10):
     # Learning rate reduction callback
     learning_rate_reduction = ReduceLROnPlateau(monitor='val_accuracy', patience=2, verbose=1, factor=0.3, min_lr=0.000001)
 
@@ -76,7 +76,7 @@ def train_model_with_augmentation(model, augmented_data, x_val, y_val, epochs=12
     return history
 
 
-def plot_training_history(history):
+def plot_training_historyB(history):
     epochs = range(1, len(history.history['accuracy']) + 1)
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 5))

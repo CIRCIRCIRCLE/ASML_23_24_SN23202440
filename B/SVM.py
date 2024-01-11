@@ -56,6 +56,6 @@ def test_images(clf, x_test, y_test):
     print('\nClassification Report:\n', classification_rep)
     print('\nConfusion Matrix:\n', confusion_mat)
 
-    return accuracy, classification_rep, confusion_mat
+    return predictions, accuracy, classification_rep, confusion_mat
 
 
