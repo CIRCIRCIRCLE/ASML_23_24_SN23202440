@@ -27,14 +27,17 @@ Libraries    : NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn, Tensorflow, Ker
 ## File explanation  
 - The full codes and results are displayed in the jupyter notebook (A: 'Pneumonia Detection.ipynb', B: 'Colorectal tissue classification.ipynb')  
 - `main.py` is the entrance of the project containing two functions `A_pneumonia_detection` and `B_path_multi_classification` corresponding to 2 tasks. Run the 'main.py' and enter the function you want to call in the command line. Each function has default parameters which can be changed in the corresponding functions.
-  ```
+- A file contains load_data.py, preprocessing.py, visualization.py which will also be used in B task. And also contains ML functions: LR.py, KNN.py, CNN.py which will be called in the main function.
+- B file contains SVM.py, CNN_B.py which will be called in the main function.
+- datasets should contain 'pneumoniamnist.npz', 'pathmnist.npz'(not included in this repository)
+```
   Choose a Task (A or B):
+  Do you want to check the distribution overview? Y or N:
+  (for Task A takes 7min, for Task B takes 10min, tap in `N` to skip this step)
     if you choose `A`: Choose a method (LR or KNN or CNN)
     if you choose `B`: Choose a method (SVM or CNN)
     ##for Task B it may run a long time: approximate 40min for SVM, 20min for CNN， I presented the results in the B/results.txt file for reference.
-  ```
-- A file contains load_data.py, preprocessing.py, visualization.py which will also be used in B task. And also contains ML functions: LR.py, KNN.py, CNN.py which will be called in the main function.
-- B file contains SVM.py, CNN_B.py which will be called in the main function.
+```
 
 ## Default parameters for each model
 ### Task A:
