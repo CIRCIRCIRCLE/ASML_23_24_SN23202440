@@ -30,10 +30,22 @@ Libraries    : NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn, Tensorflow, Ker
   ```
   Choose a Task (A or B):
     if you choose `A`: Choose a method (LR or KNN or CNN)
-    if you choose `B`: Choose a method (SVM or CNN)  ##for Task B it may run a long time: approximate 40min for SVM, 20min for CNN
+    if you choose `B`: Choose a method (SVM or CNN)
+    ##for Task B it may run a long time: approximate 40min for SVM, 20min for CNN， I presented the results in the B/results.txt file for reference.
   ```
 - A file contains load_data.py, preprocessing.py, visualization.py which will also be used in B task. And also contains ML functions: LR.py, KNN.py, CNN.py which will be called in the main function.
 - B file contains SVM.py, CNN_B.py which will be called in the main function.
+
+## Default parameters for each model
+### Task A:
+- LR: solver='lbfgs', penalty='l2'
+- KNN: K = 8 (choose manually based on the error curve presented, in this scenario k = 8 is recommended)
+- CNN: (ConV-Relu-MaxPooling)×3 - flattening-FC1-FC2-Relu-FC2
+
+### Task B:
+- SVM with PCA: ('pca', PCA(n_components=178)), ('svm', SVC(C=10))   
+- CNN: ((ConV-Relu-MaxPooling)×6 - flattening-FC1-FC2-Relu-FC2)×2   
+
 
 ## Performance
 ### Task A:
